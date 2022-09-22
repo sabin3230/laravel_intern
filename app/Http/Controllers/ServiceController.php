@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\cr;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,10 @@ class UserController extends Controller
      *
      */
 
-    public function __construct()
-    {
-      $this->middleware('auth')->only('index');
-    }
+//     public function __construct()
+//     {
+//       $this->middleware('auth')->only('index');
+//     }
      
     public function index()
     {

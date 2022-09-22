@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +50,7 @@ Route::get('/profile/{id}/{name}', function($id, $name){
 
 //Route group 
 
-Route::controller(UserController::class) ->group(function(){
+Route::controller(ServiceController::class) ->group(function(){
     Route::get('/add',  'create');
     Route::get('/view',  'show');
     Route::get('/edit',  'edit');
@@ -59,10 +59,10 @@ Route::controller(UserController::class) ->group(function(){
 });
 
 
- Route::group ([UserController::class,'middleware' => 'auth' ], function(){
+//  Route::group ([ServiceController::class,'middleware' => 'auth' ], function(){
 
  
-Route::get('/delete',  'delete');
+// Route::get('/delete',  'delete');
 
-});
+// });
 
