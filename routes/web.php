@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AppController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
@@ -72,24 +74,29 @@ Route::get('/', function () {
 //route assignment2
 
 //
-Route::get('/name/{name}', [UserController::class, 'show']);
+// Route::get('/name/{name}', [UserController::class, 'show']);
 
 
-//Group Controller with middleware
-Route::controller(UserController::class,['middleware' => ['auth' ]]) ->group(function(){
-     Route::get('/index', 'index');
-    Route::get('/create', 'create');
-    Route::get('/store', 'store');
-    Route::get('/change', 'edit');
-    Route::get('/modify', 'update');
-    Route::get('/remove', 'delete');
+// //Group Controller with middleware
+// Route::controller(UserController::class,['middleware' => ['auth' ]]) ->group(function(){
+//      Route::get('/index', 'index');
+//     Route::get('/create', 'create');
+//     Route::get('/store', 'store');
+//     Route::get('/change', 'edit');
+//     Route::get('/modify', 'update');
+//     Route::get('/remove', 'delete');
 
-});
+// });
 
-//collection in resource method
-Route::resource('categories', CategoryController::class);
+// //collection in resource method
+// Route::resource('categories', CategoryController::class);
 
-// resource method path are store in product folder
-Route::group(['prefix'=> "product"], function(){
-    Route::resource('category', CategoryController::class);
-});
+// // resource method path are store in product folder
+// Route::group(['prefix'=> "product"], function(){
+//     Route::resource('category', CategoryController::class);
+// });
+
+
+Route::resource('app', AppController::class)->middleware('app','OnlyMiddleware');
+Route::resource('feature', FeatureController::class)->middleware(['auth', 'ExceptMiddleware']);
+
