@@ -7,6 +7,8 @@ use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersmoduleController;
+use App\Http\Controllers\UserspostController;
 use GuzzleHttp\Middleware;
 
 /*
@@ -97,6 +99,8 @@ Route::get('/', function () {
 // });
 
 
-Route::resource('app', AppController::class)->middleware('app','OnlyMiddleware');
-Route::resource('feature', FeatureController::class)->middleware(['auth', 'ExceptMiddleware']);
+// Route::resource('app', AppController::class)->middleware('app','OnlyMiddleware');
+// Route::resource('feature', FeatureController::class)->middleware(['auth', 'ExceptMiddleware']);
 
+Route::resource('usermodule', UsersmoduleController::class );
+Route::resource('userpost', UserspostController::class);
