@@ -102,5 +102,5 @@ Route::get('/', function () {
 // Route::resource('app', AppController::class)->middleware('app','OnlyMiddleware');
 // Route::resource('feature', FeatureController::class)->middleware(['auth', 'ExceptMiddleware']);
 
-Route::resource('usermodule', UsersmoduleController::class );
+// Route::resource('usermodule', UsersmoduleController::class );
 Route::resource('userpost', UserspostController::class);
