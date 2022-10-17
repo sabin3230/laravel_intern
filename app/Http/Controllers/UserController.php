@@ -2,30 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Models\cr;
 
 class UserController extends Controller
 {
-  
-     public function __construct()
-          {
-       $this->middleware('auth')->only('index');
-   }
-
-
-    public function index(Request $request){
-        $test = $request->data;
-
-        dd($test);
-    }
-
-     public function create()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-       return "user add";
+        $users = User::get();
+        
+        return view("user", ['users'=>$users]);
+
+        // $html = view('user', compact('users'))->render();
+        
+
+        
     }
 
-    
+
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -34,51 +45,51 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-         return "user store";
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\cr  $cr
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show($name)
+    public function show(User $user)
     {
-         return "my name is: " . $name. " working intern in Ekbana"; 
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\cr  $cr
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(cr $cr)
+    public function edit(User $user)
     {
-         return "user edit";
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\cr  $cr
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cr $cr)
+    public function update(Request $request, User $user)
     {
-         return "user update";
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\cr  $cr
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cr $cr)
+    public function destroy(User $user)
     {
-         return "user delete";
+        //
     }
 }

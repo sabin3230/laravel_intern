@@ -104,3 +104,6 @@ Route::get('/', function () {
 
 // Route::resource('usermodule', UsersmoduleController::class );
 Route::resource('userpost', UserspostController::class);
+
+
+Route::get('user', [UserController:: class, 'index']);
